@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator App</title>
+    <script>
+        
+// Use insert() function to insert the number in textview.
+function insert(num) 
+{
+document.form1.textview.value = document.form1.textview.value + num;
+}
+
+// Use equal() function to return the result based on passed values.
+function equal()
+{
+var exp = document.form1.textview.value;
+if(exp)
+{
+document.form1.textview.value = eval(exp)
+}
+}
+
+/* Here, we create a backspace() function to remove the number at the end of the numeric series in textview. 
+function backspace()
+{
+var exp = document.form1.btn.value;
+document.form1.btn.value = exp.substring(0, exp.length - 1); from total length ? 
+} */
+    </script>
+    <style>
+        /* quick reset so all our padding is the right size */
+
+@import url('https://fonts.googleapis.com/css?family=Space+Mono');
+
+.calculator input,
+.calc-button   {
+  font-family: 'Space Mono';
+}
+
+
+* {
+    box-sizing: border-box;
+  }
+  
+  /* add some spacing */
+  body          {
+    background: #F6F6F6;
+    padding-bottom: 30px;
+    padding-top: 30px;
+  }
+  
+  /* limit the width and center */
+  .calculator .formstyle  {
+    max-width: 400px;
+    margin: 0 auto;
+    border: 2px solid #111;
+    border-radius: 5px;
+  }
+
+  .calc-button  {
+    background: lightskyblue; /* light background with opacity 50% */
+    border: 1px solid #111; /* black border */
+    padding: 20px;
+    color: rgb(255, 255, 255); /* white text */
+    border-radius: 5px; /* rounded corners */
+    font-size: 22px; /* larger fonts */
+    cursor: pointer; /* make it look clickable */
+  }
+
+  .calculator input   {
+    /* reset basic form styles */
+    background: none;
+    border: none;
+    box-shadow: none;
+    outline: none;
+  
+    padding: 10px;
+    width: 100%;
+    border-bottom: 2px solid #111;
+    color: #333;
+    text-align: right;
+    font-size: 40px;
+    border-radius: 0;
+  }
+
+  .calculator-buttons {
+    /* small spacing within our container */
+    padding: 20px;
+  
+    /* the grid stuff! */
+    display: grid;
+  
+    /* create 4 columns */
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .calculator-buttons {
+  
+  
+    /* add the grid gap */
+    grid-gap: 15px;
+  }
+
+
+  /* span across 3 columns */
+.is-zero,
+.is-clear   {
+  grid-column: span 3;
+}
+
+ .is-clear{
+    background-color: lightsalmon;
+}
+
+.is-equals{
+    background-color: lightsalmon;
+}
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class= "formstyle">
+          <form name = "form1">
+          <input class= "textview" name = "textview">
+          </form>
+        
+        
+          <!-- the input -->
+         
+        
+          <!-- the buttons -->
+          <div class="calculator-buttons">
+  
+            <button class="calc-button is-clear" value="C" onclick = "form1.textview.value = ' '"> C </button>
+            <button class="calc-button"  value ="/" onclick="insert('/')">&divide;</button>
+        
+            <button class="calc-button"  value ="7" onclick="insert('7')">7</button>
+            <button class="calc-button"  value ="8" onclick="insert('8')">8</button>
+            <button class="calc-button"  value ="9" onclick="insert('9')">9</button>
+            <button class="calc-button"  value ="*"  onclick="insert('*')">&times;</button>
+        
+            <button class="calc-button" value ="4" onclick="insert('4')">4</button>
+            <button class="calc-button" value ="5" onclick="insert('5')">5</button>
+            <button class="calc-button" value ="6" onclick="insert('6')">6</button>
+            <button class="calc-button" value ="-" onclick="insert('-')">&minus;</button>
+        
+            <button class="calc-button" value ="1" onclick="insert('1')">1</button>
+            <button class="calc-button" value ="2" onclick="insert('2')">2</button>
+            <button class="calc-button" value ="3" onclick="insert('3')">3</button>
+            <button class="calc-button" value ="+" onclick="insert('+')">&plus;</button>
+        
+            <button class="calc-button is-zero" value ="0" onclick="insert('0')">0</button>
+            <button class="calc-button is-equals" value = "=" onclick="equal('=')">&equals;</button>
+          </div>
+          
+        </div>
+  
+   
+</body>
+</html>
